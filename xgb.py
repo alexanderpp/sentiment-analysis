@@ -1,65 +1,46 @@
-# First XGBoost model for Pima Indians dataset
-from numpy import loadtxt
 import xgboost as xgb
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-
-import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import BaseCrossValidator
-
 from nltk.corpus import stopwords
 from stop_words import get_stop_words
-
-import csv
-
-f = open("./data/labeledTrainData.tsv", 'rb')
-reader = csv.reader(f, delimiter="\t")
-
-first = True
-
-x = []
-y = []
+import sys
+sys.path.append('.')
+import utils
 
 print "Loading data ..."
+x_train, x_test, y_train, y_test = utils.load_data(file="./data/labeledTrainData.tsv")
 
-for row in reader:
-    if first:
-        first = False
-        continue
+sw = stopwords.words('english') + get_stop_words("english")
 
-    x.append(row[2])
-    y.append(row[1])
-
-f.close()
-
+print "Extracting features..."
 vectorizer = CountVectorizer(analyzer = "word",
                              max_features = 3000)
 
-print "Extracting features..."
-
-train_data_features = vectorizer.fit_transform(x)
-
-X = np.array(train_data_features.toarray())
-Y = np.array(y)
-
-
-# split data into train and test sets
-seed = 7
-test_size = 0.3
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=test_size, random_state=seed)
+x_train, x_test, y_train, y_test = utils.extract_features(x_train, x_test, y_train, y_test, vectorizer)
 
 print "Training the model..."
-# fit model no training data
-model = xgb.XGBClassifier()
-model.fit(X_train, y_train)
-# make predictions for test data
+xgb_params = {
+    'objective': 'binary:logistic',
+    #'colsample_bytree': 0.8,
+    'silent':1,
+    'subsample': 0.8,
+    'learning_rate': 0.5,
+    'max_depth': 8,
+    'num_parallel_tree': 1,
+    'min_child_weight': 10,
+    'eval_metric': 'auc',
+    'seed':0
+}
+
+dtrain = xgb.DMatrix(x_train, label=y_train)
+watchlist  = [(dtrain,'train')]
+model = xgb.train(xgb_params, dtrain, 128, watchlist)
 
 print "Predicting..."
 
-y_pred = model.predict(X_test)
+dtest = xgb.DMatrix(x_test)
+y_pred = model.predict(dtest)
 
 print "Evaluating..."
-# evaluate predictions
-accuracy = accuracy_score(y_test, y_pred)
+accuracy = accuracy_score(y_test, y_pred.round())
 print("Accuracy: %.2f%%" % (accuracy * 100.0))
