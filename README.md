@@ -11,6 +11,39 @@ For all of the data is spit into training data and test data, using the followin
 
 Link: https://www.kaggle.com/c/word2vec-nlp-tutorial/data
 
+## Processing of the data
+
+
+### Method 1
+Forst the data is converted to indexes. All of the different words are collected into a list, where each of them is given an index.
+Then after we have with words and indexes, it is time to revisit every sample and vector for each one.
+The vector has the dimensions equal to the total count of words in the whole dictionary.
+On every position of the vector (coresponding to the index of word) is the count of times this word is found in the current sample text.
+
+Example:
+
+If we these sentences:
+
+```
+"This is sentence number one."
+"This is the second sentence."
+```
+
+Now that we have our samples we can create our bag of words, which looks like this:
+
+```
+["this", "is", "sentence", "number", "one", "the", "second", "sentence"]
+```
+
+Now we can replace the words in our sentences and make them look like vectors of integers:
+
+```
+Sentence 1: [1, 1, 1, 1, 1, 0, 0, 0]
+
+Sentence 2: [1, 1, 0, 0, 0, 1, 1, 1]
+```
+
+
 ## Algorithms
 
 * Naive Bayes Classifier
