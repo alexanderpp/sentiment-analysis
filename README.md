@@ -14,7 +14,7 @@ Link: https://www.kaggle.com/c/word2vec-nlp-tutorial/data
 ## Processing of the data
 
 
-### Method 1
+### Method 1 - Represent the text as vector of the counts its words
 First the data is converted to indexes. All of the different words are collected into a list, where each of them is given an index.
 Then after we have words and indexes, it is time to revisit every sample and create a vector for it.
 The vector has the dimensions equal to the total count of words in the whole dictionary.
@@ -32,16 +32,50 @@ If we these sentences:
 Now that we have our samples we can create our bag of words, which looks like this:
 
 ```
-["this", "is", "sentence", "number", "one", "the", "second", "sentence"]
+["this", "is", "sentence", "number", "one", "the", "second"]
 ```
 
 Now we can replace the words in our sentences and make them look like vectors of integers:
 
 ```
-Sentence 1: [1, 1, 1, 1, 1, 0, 0, 0]
+Sentence 1: [1, 1, 1, 1, 1, 0, 0]
 
-Sentence 2: [1, 2, 0, 0, 0, 1, 1, 1]
+Sentence 2: [1, 1, 2, 0, 0, 1, 1]
 ```
+
+### Method 2 - Represent the data with indexes
+
+This method is very similar to the first one. Again first the data is converted to indexes. All of the different words are collected into a list, where each of them is given an index.
+Then after we have words and indexes, it is time to revisit every sample and create a vector for it.
+The vector has the dimensions equal to count of words in the sentence.
+The index zero is reserved for unknown words.
+
+Example:
+
+If we these sentences:
+
+```
+"This is sentence number one."
+"This sentence is the second sentence."
+```
+
+Now that we have our samples we can create our bag of words, which looks like this:
+
+```
+["this", "is", "sentence", "number", "one", "the", "second"]
+```
+
+Now we can replace the words in our sentences and make them look like vectors of integers:
+
+```
+Sentence 1: [1, 2, 3, 4, 5]
+
+Sentence 2: [1, 3, 2, 6, 7, 3]
+```
+
+### Method 3 - Using Word2vec
+
+... TODO ...
 
 
 ## Algorithms
