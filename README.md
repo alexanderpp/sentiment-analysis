@@ -15,8 +15,8 @@ Link: https://www.kaggle.com/c/word2vec-nlp-tutorial/data
 
 
 ### Method 1
-Forst the data is converted to indexes. All of the different words are collected into a list, where each of them is given an index.
-Then after we have with words and indexes, it is time to revisit every sample and vector for each one.
+First the data is converted to indexes. All of the different words are collected into a list, where each of them is given an index.
+Then after we have words and indexes, it is time to revisit every sample and create a vector for it.
 The vector has the dimensions equal to the total count of words in the whole dictionary.
 On every position of the vector (coresponding to the index of word) is the count of times this word is found in the current sample text.
 
