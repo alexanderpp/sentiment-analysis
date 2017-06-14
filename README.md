@@ -26,7 +26,7 @@ If we these sentences:
 
 ```
 "This is sentence number one."
-"This is the second sentence."
+"This sentence is the second sentence."
 ```
 
 Now that we have our samples we can create our bag of words, which looks like this:
@@ -40,7 +40,7 @@ Now we can replace the words in our sentences and make them look like vectors of
 ```
 Sentence 1: [1, 1, 1, 1, 1, 0, 0, 0]
 
-Sentence 2: [1, 1, 0, 0, 0, 1, 1, 1]
+Sentence 2: [1, 2, 0, 0, 0, 1, 1, 1]
 ```
 
 
