@@ -14,7 +14,7 @@ Link: https://www.kaggle.com/c/word2vec-nlp-tutorial/data
 ## Processing of the data
 
 
-### Method 1 - Represent the text as vector of the counts its words
+### Method 1 - Term Frequency Representation
 First the data is converted to indexes. All of the different words are collected into a list, where each of them is given an index.
 Then after we have words and indexes, it is time to revisit every sample and create a vector for it.
 The vector has the dimensions equal to the total count of words in the whole dictionary.
@@ -43,7 +43,7 @@ Sentence 1: [1, 1, 1, 1, 1, 0, 0]
 Sentence 2: [1, 1, 2, 0, 0, 1, 1]
 ```
 
-### Method 2 - Represent the data with indexes
+### Method 2 - One-hot Representation
 
 This method is very similar to the first one. Again first the data is converted to indexes. All of the different words are collected into a list, where each of them is given an index.
 Then after we have words and indexes, it is time to revisit every sample and create a vector for it.
