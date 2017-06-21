@@ -24,6 +24,7 @@ The idea is to write different algorithms using different machine learning aproa
  ***TODO** Add content here*
 
 ## Current Results
+
 | Algorithm                             | Accuracy |
 | ------------------------------------- | -------- |
 | Naive Bayes Classifier                |  77.00%  |

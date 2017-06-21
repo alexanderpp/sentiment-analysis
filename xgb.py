@@ -7,6 +7,8 @@ import sys
 sys.path.append('.')
 import utils
 
+max_features = 3000
+
 print "Loading data ..."
 x_train, x_test, y_train, y_test = utils.load_data(file="./data/labeledTrainData.tsv")
 
@@ -14,7 +16,7 @@ sw = stopwords.words('english') + get_stop_words("english")
 
 print "Extracting features..."
 vectorizer = CountVectorizer(analyzer = "word",
-                             max_features = 3000)
+                             max_features = max_features)
 
 x_train, x_test, y_train, y_test = utils.extract_features(x_train, x_test, y_train, y_test, vectorizer)
 
@@ -37,7 +39,6 @@ watchlist  = [(dtrain,'train')]
 model = xgb.train(xgb_params, dtrain, 128, watchlist)
 
 print "Predicting..."
-
 dtest = xgb.DMatrix(x_test)
 y_pred = model.predict(dtest)
 

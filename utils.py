@@ -6,25 +6,61 @@ from nltk.tokenize import word_tokenize
 
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
+from nltk.corpus import stopwords
+from stop_words import get_stop_words
 import numpy as np
+
+
+from nltk.tokenize import RegexpTokenizer
 
 import csv
 
 # ----------------------------------------------- Text Manipulation ----------------------------------------------------
 
+def get_sw():
+    return stopwords.words('english') + get_stop_words("english")
+
+
 def get_sentences(text):
-    return sent_tokenize(unicode(text, errors='replace'))
+    text = text.decode('ascii', 'ignore')
+
+    # try:
+    #     text = unicode(text, errors='replace')
+    # except:
+    #     pass
+
+    return sent_tokenize(text)
 
 def get_words(text):
-    return word_tokenize(unicode(text, errors='replace'))
+    text = text.decode('ascii', 'ignore')
+
+    # try:
+    #     text = unicode(text, errors='replace')
+    # except:
+    #     pass
+
+    return word_tokenize(text)
 
 def lemmatize_text(text):
-    tokens = get_words(unicode(text, errors='replace'))
+    text = text.decode('utf8', 'ignore')
+
+    # try:
+    #     text = unicode(text, errors='replace')
+    # except:
+    #     pass
+
+
+    tokenizer = RegexpTokenizer(r'\w+')
+    tokens = tokenizer.tokenize(text)
+
+    tokens = filter(lambda x: x not in get_sw(), tokens)
 
     for i in range(0, len(tokens)):
         tokens[i] = wordnet_lemmatizer.lemmatize(tokens[i], pos="v");
 
-    return " ".join(tokens)
+    result = " ".join(tokens)
+
+    return result.encode('utf-8')
 
 # -------------------------------------------------- Data Loading ------------------------------------------------------
 
