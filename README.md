@@ -93,7 +93,7 @@ Sentence 2: [1, 3, 2, 6, 7, 3]
 Word2vec is a newural net which processes text. 
 The input of this net is a set of text examples and the output is a set of vectors, where every word is represented as a multidimnsional vector.
 
-![Word2vec](https://1.bp.blogspot.com/-Q7F8ulD6fC0/UgvnVCSGmXI/AAAAAAAAAbg/MCWLTYBufhs/s1600/image00.gif)
+![Word2vec](https://1.bp.blogspot.com/-Q7F8ulD6fC0/UgvnVCSGmXI/AAAAAAAAAbg/MCWLTYBufhs/s1600/image00.gif =300x)
 *The image [article](https://opensource.googleblog.com/2013/08/learning-meaning-behind-words.html) from Google Opensource Blog*
 
 
@@ -104,10 +104,39 @@ This provides a solid ground for the LSTM model to learn.
 
 ## Algorithms
 
-* Naive Bayes Classifier
-* XGBoost
-* Multi-Layer Perceptron Neural Network
-* Long Short-Term Memory Neural Network
+### Naive Bayes Classifier
+
+This is one of the most simple classifiers that are commonly used.
+However, still it produces very good results and is able to classify with great accuracy.
+
+
+Naive Bayes is part of the so called probabilistic classification algorithms (or classifiers).
+It is named Bayes, because it is based on and applies Bayes' theorem which looks like ths:
+
+```
+P(A|B) = (P(A|B) P(A)) / P(B)
+```
+
+Where:
+* P(A) is the probability of observing A
+* P(B) is the probability of observing B
+* P(A|B) is the probability of observing A given that B is present (true)
+* P(B|A) is the probability of observing B given that A is present (true)
+
+
+This classifier is called Naive, because the theorem is used with strong (naive) independence assumption between the fatures.
+
+
+### XGBoost
+
+... TODO ...
+
+### Multi-Layer Perceptron Neural Network
+
+
+### Long Short-Term Memory Neural Network
+
+... TODO ...
 
 ## Current Results
 
