@@ -93,7 +93,7 @@ Sentence 2: [1, 3, 2, 6, 7, 3]
 Word2vec is a newural net which processes text. 
 The input of this net is a set of text examples and the output is a set of vectors, where every word is represented as a multidimnsional vector.
 
-![Word2vec](https://1.bp.blogspot.com/-Q7F8ulD6fC0/UgvnVCSGmXI/AAAAAAAAAbg/MCWLTYBufhs/s1600/image00.gif =300x)
+![Word2vec](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Word2vec.gif)
 *The image [article](https://opensource.googleblog.com/2013/08/learning-meaning-behind-words.html) from Google Opensource Blog*
 
 
@@ -133,22 +133,50 @@ This classifier is called Naive, because the theorem is used with strong (naive)
 
 ### Multi-Layer Perceptron Neural Network
 
+The idea behind the Neural Networks is to replicate the way the human brain works.
+In order to achieve that they create a big network of so called ```perceptrons``` - specailly designed mathematical models that sumulate biological neurons.
+
+Basically a percepron looks like this:
+
+![Perceptron](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Perceptron.PNG)
+
+You can see that it is consisted of several parts, which are:
+* Input - a perceptron takes multiple inputs which, in the picture they are enumerated as x<sub>0</sub>, x<sub>1</sub> to x<sub>n</sub>. Another way to represent the input is as the vector x.
+* Weights - weights are the metric that describes how meaninful is each input for the final classification.
+* Bias - a constant, the purpose of which is to tilt the activation function in order to help it fit better the training data
+* Sum - the sum of the Inputs, each multiplied by its weight, plus the bias.
+* Activation function - the function that produces the final result.
+
+The forward pass of the perceptron, meaning the transition form the inputs to the output is described by this formula:
+
+
+*output = g(XW + b)*
+
+
+Where:
+
+* *X = x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub> ... x<sub>n</sub> - the input of the perceptron*
+* *W = w<sub>0</sub>, w<sub>1</sub>, w<sub>2</sub> ... w<sub>n</sub> - the weights for each input*
+* *b - the bias*
+* *g() - the activation function*
+
+
+
+In order to make a Neural Network we need to combine multiple layers of perceptrons.
+Imagine that we have one perceptron which receives some input and processes some otput in the form of a vector (it can be with the same dimensions as the input or different).
+Now we can take the output of our first perceptron and pass it to the second one.
+This process can be repeated as much as we want to.
+Every perceptron feeding form the input of another one is part of a hidden layer.
+To get better idea of the situation, check the picture below. Note that the links between the input and the output are repleced by X for simplicity.
+
+
+![NeuralNetwork](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/NeuralNetwork.PNG)
 
 ### Long Short-Term Memory Neural Network
 
 ... TODO ...
 
 ## Current Results
-<<<<<<< HEAD
-
-| Algorithm                             | Accuracy |
-| ------------------------------------- | -------- |
-| Naive Bayes Classifier                |  77.00%  |
-| XGBoost                               |  86.08%  |
-| Multi-Layer Perceptron Neural Network |  87.23%  |
-| Long Short-Term Memory Neural Network |  83.45%  |
-=======
->>>>>>> 41aeca1f318d8c27f974af9612ad97f5a3d3d5cb
 
 ### Results using the first dataset
 
