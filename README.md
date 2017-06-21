@@ -5,11 +5,23 @@ The idea is to write different algorithms using different machine learning appro
 
 ## Data
 
+### Dataset 1
+
 The data ised for testing and training is part Keggle competiton called "Bag of Words Meets Bags of Popcorn".
 It consists of 25,000 IMDB movie reviews, specially selected for sentiment analysis. The sentiment of reviews is binary, meaning the IMDB rating < 5 results in a sentiment score of 0, and rating >=7 have a sentiment score of 1. No individual movie has more than 30 reviews.
 For all of the data is spit into training data and test data, using the following proportions - 70% for training and 30% for testing.
 
 Link: https://www.kaggle.com/c/word2vec-nlp-tutorial/data
+
+
+### Dataset 2
+
+Another dataset which contains IMDB movie reviews, shared by [ACL](http://ai.stanford.edu/~amaas/papers/wvSent_acl2011.bib).
+It contains 25,000 equally split samples for training and another 25,000 (again, equially spilt), for testing. 
+Both batches of data are labeled.
+
+Link: http://ai.stanford.edu/~amaas/data/sentiment/
+
 
 ## Processing of the data
 
@@ -76,6 +88,8 @@ Sentence 2: [1, 3, 2, 6, 7, 3]
 ### Method 3 - Using Word2vec
 
 ... TODO ...
+
+Word2vec is a newural net which processes text. The input of this net is a set of text examples and the output is a set of vectors, where every word is represented as a multidimnsional vector.
 
 
 ## Algorithms
