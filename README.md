@@ -86,12 +86,28 @@ Sentence 2: [1, 3, 2, 6, 7, 3]
 * Long Short-Term Memory Neural Network
 
 ## Current Results
-| Algorithm                             | Accuracy |
-| ------------------------------------- | -------- |
-| Naive Bayes Classifier                |  77.00%  |
-| XGBoost                               |  86.08%  |
-| Multi-Layer Perceptron Neural Network |  87.23%  |
-| Long Short-Term Memory Neural Network |  83.45%  |
+
+### Results using the first dataset
+
+| Algorithm                              | Accuracy |
+| -------------------------------------- | -------- |
+| Naive Bayes Classifier                 |  77.00%  |
+| XGBoost                                |  86.08%  |
+| Multi-Layer Perceptron Neural Network  |  87.23%  |
+| Long Short-Term Memory Neural Network* |  83.45%  |
+
+
+*\*The data was represented using One-hot encoding*
+
+
+### Results using the second dataset
+
+| Algorithm                              | Accuracy |
+| -------------------------------------- | -------- |
+| Naive Bayes Classifier                 |    |
+| XGBoost                                |    |
+| Multi-Layer Perceptron Neural Network  |    |
+| Long Short-Term Memory Neural Network* |    |
 
 ## Libraries
 
