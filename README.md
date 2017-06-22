@@ -129,7 +129,15 @@ This classifier is called Naive, because the theorem is used with strong (naive)
 
 ### XGBoost
 
-... TODO ...
+[XGBoost](http://xgboost.readthedocs.io/en/latest/) is short for “Extreme Gradient Boosting”, 
+where the term “[Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)” is proposed in the paper Greedy Function Approximation: 
+A Gradient Boosting Machine, by Friedman. XGBoost is based on this original model. 
+The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic.
+
+XGBoost is an optimized distributed gradient boosting [library](https://github.com/dmlc/xgboost) designed to be highly efficient, flexible and portable. 
+It implements machine learning algorithms under the Gradient Boosting framework. 
+XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. 
+The same code runs on major distributed environment (Hadoop, SGE, MPI) and can solve problems beyond billions of examples.
 
 ### Multi-Layer Perceptron Neural Network
 
