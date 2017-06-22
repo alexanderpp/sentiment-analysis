@@ -94,6 +94,7 @@ Word2vec is a newural net which processes text.
 The input of this net is a set of text examples and the output is a set of vectors, where every word is represented as a multidimnsional vector.
 
 ![Word2vec](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Word2vec.gif)
+
 *The image [article](https://opensource.googleblog.com/2013/08/learning-meaning-behind-words.html) from Google Opensource Blog*
 
 
@@ -181,6 +182,8 @@ To get better idea of the situation, check the picture below. Note that the link
 ![NeuralNetwork](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/NeuralNetwork.PNG)
 
 ### Long Short-Term Memory Neural Network
+
+Befor talking about LSTM it is only natural that we first mention something about Recurrent Neural Networks in general.
 
 ... TODO ...
 
