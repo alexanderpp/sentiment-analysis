@@ -185,7 +185,36 @@ To get better idea of the situation, check the picture below. Note that the link
 
 Befor talking about LSTM it is only natural that we first mention something about Recurrent Neural Networks in general.
 
-... TODO ...
+A recurent neural netowrk is verry similar to normal neural network.
+In fact if looked from the outmost perspective it looks exacly the same - input layer, some hidden layers and an output layer.
+However it is very differeny in the way the hidden layers behave.
+
+![RNN_Hidden_Layer](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/RNN_Hidden_Layer.PNG)
+
+Where:
+
+* W, U - weight matrices
+* x<sub>0</sub> - vector representing the first word
+* s<sub>0</sub> - cell state at t = 0
+* s<sub>1</sub> - cell state at t = 1 (s<sub>1</sub> = *tanh*(W x<sub>0</sub> + U s<sub>0</sub>)) 
+
+This basically means that Recurrent Neural Networs are aware of their previous state.
+You can olso say that they remember a context, or that they are context aware.
+
+Another way to represent the RNN is if we unfold it through time:
+
+![Unfolded_RNN](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Unfolded_RNN.PNG)
+
+LSTM is basically a Reacurrent Neural Network that uses several steps of logic gates, which controls the flow of input through it.
+The purpose of this gates is to decide what information flows through and what information gets multiplied by the weights and activations.
+
+How LSTM works:
+
+* At first it forgets the usless (irrelevant) parts of the previous state.
+* Not all cell values are updated. The update process is done selectively. Again irrelevant subjects don't update the cell state.
+* Output certain parts of the cell state that are considered rellevant.
+
+This way all the irellevant information is forgotton to give priority to remembering only what is rellevant.
 
 ## Current Results
 
