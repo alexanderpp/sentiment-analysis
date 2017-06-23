@@ -93,7 +93,8 @@ Sentence 2: [1, 3, 2, 6, 7, 3]
 Word2vec is a newural net which processes text. 
 The input of this net is a set of text examples and the output is a set of vectors, where every word is represented as a multidimnsional vector.
 
-![Word2vec](https://1.bp.blogspot.com/-Q7F8ulD6fC0/UgvnVCSGmXI/AAAAAAAAAbg/MCWLTYBufhs/s1600/image00.gif =300x)
+![Word2vec](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Word2vec.gif)
+
 *The image [article](https://opensource.googleblog.com/2013/08/learning-meaning-behind-words.html) from Google Opensource Blog*
 
 
@@ -129,26 +130,93 @@ This classifier is called Naive, because the theorem is used with strong (naive)
 
 ### XGBoost
 
-... TODO ...
+[XGBoost](http://xgboost.readthedocs.io/en/latest/) is short for “Extreme Gradient Boosting”,
+where the term “[Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)” is proposed in the paper Greedy Function Approximation:
+A Gradient Boosting Machine, by Friedman. XGBoost is based on this original model.
+The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic.
+
+XGBoost is an optimized distributed gradient boosting [library](https://github.com/dmlc/xgboost) designed to be highly efficient, flexible and portable.
+It implements machine learning algorithms under the Gradient Boosting framework.
+XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way.
+The same code runs on major distributed environment (Hadoop, SGE, MPI) and can solve problems beyond billions of examples.
 
 ### Multi-Layer Perceptron Neural Network
 
+The idea behind the Neural Networks is to replicate the way the human brain works.
+In order to achieve that they create a big network of so called ```perceptrons``` - specailly designed mathematical models that sumulate biological neurons.
+
+Basically a percepron looks like this:
+
+![Perceptron](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Perceptron.PNG)
+
+You can see that it is consisted of several parts, which are:
+* Input - a perceptron takes multiple inputs which, in the picture they are enumerated as x<sub>0</sub>, x<sub>1</sub> to x<sub>n</sub>. Another way to represent the input is as the vector x.
+* Weights - weights are the metric that describes how meaninful is each input for the final classification.
+* Bias - a constant, the purpose of which is to tilt the activation function in order to help it fit better the training data
+* Sum - the sum of the Inputs, each multiplied by its weight, plus the bias.
+* Activation function - the function that produces the final result.
+
+The forward pass of the perceptron, meaning the transition form the inputs to the output is described by this formula:
+
+
+*output = g(XW + b)*
+
+
+Where:
+
+* *X = x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub> ... x<sub>n</sub> - the input of the perceptron*
+* *W = w<sub>0</sub>, w<sub>1</sub>, w<sub>2</sub> ... w<sub>n</sub> - the weights for each input*
+* *b - the bias*
+* *g() - the activation function*
+
+
+
+In order to make a Neural Network we need to combine multiple layers of perceptrons.
+Imagine that we have one perceptron which receives some input and processes some otput in the form of a vector (it can be with the same dimensions as the input or different).
+Now we can take the output of our first perceptron and pass it to the second one.
+This process can be repeated as much as we want to.
+Every perceptron feeding form the input of another one is part of a hidden layer.
+To get better idea of the situation, check the picture below. Note that the links between the input and the output are repleced by X for simplicity.
+
+
+![NeuralNetwork](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/NeuralNetwork.PNG)
 
 ### Long Short-Term Memory Neural Network
 
-... TODO ...
+Befor talking about LSTM it is only natural that we first mention something about Recurrent Neural Networks in general.
+
+A recurent neural netowrk is verry similar to normal neural network.
+In fact if looked from the outmost perspective it looks exacly the same - input layer, some hidden layers and an output layer.
+However it is very differeny in the way the hidden layers behave.
+
+![RNN_Hidden_Layer](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/RNN_Hidden_Layer.PNG)
+
+Where:
+
+* W, U - weight matrices
+* x<sub>0</sub> - vector representing the first word
+* s<sub>0</sub> - cell state at t = 0
+* s<sub>1</sub> - cell state at t = 1 (s<sub>1</sub> = *tanh*(W x<sub>0</sub> + U s<sub>0</sub>))
+
+This basically means that Recurrent Neural Networs are aware of their previous state.
+You can olso say that they remember a context, or that they are context aware.
+
+Another way to represent the RNN is if we unfold it through time:
+
+![Unfolded_RNN](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Unfolded_RNN.PNG)
+
+LSTM is basically a Reacurrent Neural Network that uses several steps of logic gates, which controls the flow of input through it.
+The purpose of this gates is to decide what information flows through and what information gets multiplied by the weights and activations.
+
+How LSTM works:
+
+* At first it forgets the usless (irrelevant) parts of the previous state.
+* Not all cell values are updated. The update process is done selectively. Again irrelevant subjects don't update the cell state.
+* Output certain parts of the cell state that are considered rellevant.
+
+This way all the irellevant information is forgotton to give priority to remembering only what is rellevant.
 
 ## Current Results
-<<<<<<< HEAD
-
-| Algorithm                             | Accuracy |
-| ------------------------------------- | -------- |
-| Naive Bayes Classifier                |  77.00%  |
-| XGBoost                               |  86.08%  |
-| Multi-Layer Perceptron Neural Network |  87.23%  |
-| Long Short-Term Memory Neural Network |  83.45%  |
-=======
->>>>>>> 41aeca1f318d8c27f974af9612ad97f5a3d3d5cb
 
 ### Results using the first dataset
 
