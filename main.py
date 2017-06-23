@@ -11,7 +11,7 @@ timesteps = 400
 dimensions = 300
 batch_size = 32
 epochs_number = 1
-
+ 
 print "Creating the model..."
 model = Sequential()
 model.add(LSTM(200,  input_shape=(timesteps, dimensions),  return_sequences=False))
