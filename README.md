@@ -130,6 +130,7 @@ This classifier is called Naive, because the theorem is used with strong (naive)
 
 ### XGBoost
 
+<<<<<<< HEAD
 [XGBoost](http://xgboost.readthedocs.io/en/latest/) is short for “Extreme Gradient Boosting”,
 where the term “[Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)” is proposed in the paper Greedy Function Approximation:
 A Gradient Boosting Machine, by Friedman. XGBoost is based on this original model.
@@ -138,6 +139,16 @@ The GBM (boosted trees) has been around for really a while, and there are a lot 
 XGBoost is an optimized distributed gradient boosting [library](https://github.com/dmlc/xgboost) designed to be highly efficient, flexible and portable.
 It implements machine learning algorithms under the Gradient Boosting framework.
 XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way.
+=======
+[XGBoost](http://xgboost.readthedocs.io/en/latest/) is short for “Extreme Gradient Boosting”, 
+where the term “[Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)” is proposed in the paper Greedy Function Approximation: 
+A Gradient Boosting Machine, by Friedman. XGBoost is based on this original model. 
+The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic.
+
+XGBoost is an optimized distributed gradient boosting [library](https://github.com/dmlc/xgboost) designed to be highly efficient, flexible and portable. 
+It implements machine learning algorithms under the Gradient Boosting framework. 
+XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. 
+>>>>>>> df998914a4b6104e6508ea7a64c12e2fc31aef0e
 The same code runs on major distributed environment (Hadoop, SGE, MPI) and can solve problems beyond billions of examples.
 
 ### Multi-Layer Perceptron Neural Network
@@ -196,7 +207,11 @@ Where:
 * W, U - weight matrices
 * x<sub>0</sub> - vector representing the first word
 * s<sub>0</sub> - cell state at t = 0
+<<<<<<< HEAD
 * s<sub>1</sub> - cell state at t = 1 (s<sub>1</sub> = *tanh*(W x<sub>0</sub> + U s<sub>0</sub>))
+=======
+* s<sub>1</sub> - cell state at t = 1 (s<sub>1</sub> = *tanh*(W x<sub>0</sub> + U s<sub>0</sub>)) 
+>>>>>>> df998914a4b6104e6508ea7a64c12e2fc31aef0e
 
 This basically means that Recurrent Neural Networs are aware of their previous state.
 You can olso say that they remember a context, or that they are context aware.
