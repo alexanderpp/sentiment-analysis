@@ -130,7 +130,6 @@ This classifier is called Naive, because the theorem is used with strong (naive)
 
 ### XGBoost
 
-<<<<<<< HEAD
 [XGBoost](http://xgboost.readthedocs.io/en/latest/) is short for “Extreme Gradient Boosting”,
 where the term “[Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)” is proposed in the paper Greedy Function Approximation:
 A Gradient Boosting Machine, by Friedman. XGBoost is based on this original model.
@@ -139,16 +138,6 @@ The GBM (boosted trees) has been around for really a while, and there are a lot 
 XGBoost is an optimized distributed gradient boosting [library](https://github.com/dmlc/xgboost) designed to be highly efficient, flexible and portable.
 It implements machine learning algorithms under the Gradient Boosting framework.
 XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way.
-=======
-[XGBoost](http://xgboost.readthedocs.io/en/latest/) is short for “Extreme Gradient Boosting”, 
-where the term “[Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)” is proposed in the paper Greedy Function Approximation: 
-A Gradient Boosting Machine, by Friedman. XGBoost is based on this original model. 
-The GBM (boosted trees) has been around for really a while, and there are a lot of materials on the topic.
-
-XGBoost is an optimized distributed gradient boosting [library](https://github.com/dmlc/xgboost) designed to be highly efficient, flexible and portable. 
-It implements machine learning algorithms under the Gradient Boosting framework. 
-XGBoost provides a parallel tree boosting (also known as GBDT, GBM) that solve many data science problems in a fast and accurate way. 
->>>>>>> df998914a4b6104e6508ea7a64c12e2fc31aef0e
 The same code runs on major distributed environment (Hadoop, SGE, MPI) and can solve problems beyond billions of examples.
 
 ### Multi-Layer Perceptron Neural Network
@@ -207,11 +196,7 @@ Where:
 * W, U - weight matrices
 * x<sub>0</sub> - vector representing the first word
 * s<sub>0</sub> - cell state at t = 0
-<<<<<<< HEAD
 * s<sub>1</sub> - cell state at t = 1 (s<sub>1</sub> = *tanh*(W x<sub>0</sub> + U s<sub>0</sub>))
-=======
-* s<sub>1</sub> - cell state at t = 1 (s<sub>1</sub> = *tanh*(W x<sub>0</sub> + U s<sub>0</sub>)) 
->>>>>>> df998914a4b6104e6508ea7a64c12e2fc31aef0e
 
 This basically means that Recurrent Neural Networs are aware of their previous state.
 You can olso say that they remember a context, or that they are context aware.
@@ -253,7 +238,36 @@ This way all the irellevant information is forgotton to give priority to remembe
 | Naive Bayes Classifier                 |    |
 | XGBoost                                |    |
 | Multi-Layer Perceptron Neural Network  |    |
-| Long Short-Term Memory Neural Network* |    |
+| Long Short-Term Memory Neural Network* |  89.20%  |
+
+
+### Lest take a further look at the LSTM scoring the best resutls
+
+
+
+#### Model
+
+The implementation is fairly simple. There are only three layers in the model:
+* LSTM layer
+* Droput layer - Dropout is a technique which aims to reduce the overfitting in a Neural netowrk. Its tries to prevent the the adaptation to the training data. 
+* Dense layer - The final layer is a simple dens layer which presents the output as a single value.
+
+#### Learning process
+
+The learning process usign LSTM is slow.
+It becomes even slower, when we add the transformation of every single word into verctors (using word2vec).
+The fact that this processing takes time is not the only thing that is slow, when every word is transformed in 300 dimensional vector it takes a lot of time for LSTM to process it.
+
+Here you can take a look into the accuracy during different steps of the learning process:
+
+![Accuracy](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Accuracy.png)
+
+As you can already see from the figure above, the process took 12 epochs to achieve its best results.
+
+For completeness, here is the chart displaying the loss, during the same learning process:
+
+![Accuracy](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Accuracy.png)
+
 
 ## Libraries
 
