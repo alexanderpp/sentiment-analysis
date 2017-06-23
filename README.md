@@ -266,7 +266,7 @@ As you can already see from the figure above, the process took 12 epochs to achi
 
 For completeness, here is the chart displaying the loss, during the same learning process:
 
-![Accuracy](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Accuracy.png)
+![Loss](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Loss.png)
 
 
 ## Libraries
