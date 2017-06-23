@@ -119,14 +119,29 @@ P(A|B) = (P(A|B) P(A)) / P(B)
 ```
 
 Where:
-* P(A) is the probability of observing A
-* P(B) is the probability of observing B
-* P(A|B) is the probability of observing A given that B is present (true)
-* P(B|A) is the probability of observing B given that A is present (true)
+* **P(A)** is the probability of observing ***A***;
+* **P(B)** is the probability of observing ***B***;
+* **P(A|B)** is the probability of observing ***A*** given that ***B*** is true;
+* **P(B|A)** is the probability of observing ***B*** given that ***A*** is true.
 
+If we apply this theorem to an actial problem, it will look like this:
 
-This classifier is called Naive, because the theorem is used with strong (naive) independence assumption between the fatures.
+```
+P(h|D) = (P(D|h) P(h)) / P(D)
+```
 
+Where:
+* **P(h)** - ** *a priori* probability** - the probability that the hypothesis ***h*** is true, before even taking a look at the training data. If we have no ** *a priori* knowledge**, we can use the same probability for all;
+* **P(D)** - the ** *a priori* probability** that we will see the data ***D***. In other words this is the probability that we will see ***D*** without knowing which hypothesis is correct;
+* **P(D|h)** - the expected probability for seeing the data ***D***, given that the hypothesis ***h*** is true;
+* **P(h|D)** - ** *a posteriori* probability* - the probability that ***h*** is true, given that we have the training data D.
+
+In the Bayes Classifier, we can compute the most probable classifiaction of new example by combining the predictions of all the hypothesis, weighed by their ** *a posteriori* probabilities** 
+
+The Naive Bayes classifier is a method for Bayes learning, which has proven its usablity in numerous tasks. 
+It is called **naive** because it uses strong (naive) independence assumptions. 
+To be more specific - it assumes that the values of the attributes are independent in the scope of a given classification of the example. 
+Even if this assumption is not met, the classification method is still very effective.
 
 ### XGBoost
 
@@ -164,10 +179,10 @@ The forward pass of the perceptron, meaning the transition form the inputs to th
 
 Where:
 
-* *X = x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub> ... x<sub>n</sub> - the input of the perceptron*
-* *W = w<sub>0</sub>, w<sub>1</sub>, w<sub>2</sub> ... w<sub>n</sub> - the weights for each input*
-* *b - the bias*
-* *g() - the activation function*
+* *X = x<sub>0</sub>, x<sub>1</sub>, x<sub>2</sub> ... x<sub>n</sub> - the input of the perceptron*;
+* *W = w<sub>0</sub>, w<sub>1</sub>, w<sub>2</sub> ... w<sub>n</sub> - the weights for each input*;
+* *b - the bias*;
+* *g() - the activation function*.
 
 
 
@@ -193,10 +208,10 @@ However it is very differeny in the way the hidden layers behave.
 
 Where:
 
-* W, U - weight matrices
-* x<sub>0</sub> - vector representing the first word
-* s<sub>0</sub> - cell state at t = 0
-* s<sub>1</sub> - cell state at t = 1 (s<sub>1</sub> = *tanh*(W x<sub>0</sub> + U s<sub>0</sub>))
+* W, U - weight matrices;
+* x<sub>0</sub> - vector representing the first word;
+* s<sub>0</sub> - cell state at t = 0;
+* s<sub>1</sub> - cell state at t = 1 (s<sub>1</sub> = *tanh*(W x<sub>0</sub> + U s<sub>0</sub>)).
 
 This basically means that Recurrent Neural Networs are aware of their previous state.
 You can olso say that they remember a context, or that they are context aware.
@@ -210,8 +225,8 @@ The purpose of this gates is to decide what information flows through and what i
 
 How LSTM works:
 
-* At first it forgets the usless (irrelevant) parts of the previous state.
-* Not all cell values are updated. The update process is done selectively. Again irrelevant subjects don't update the cell state.
+* At first it forgets the usless (irrelevant) parts of the previous state;
+* Not all cell values are updated. The update process is done selectively. Again irrelevant subjects don't update the cell state;
 * Output certain parts of the cell state that are considered rellevant.
 
 This way all the irellevant information is forgotton to give priority to remembering only what is rellevant.
@@ -228,7 +243,7 @@ This way all the irellevant information is forgotton to give priority to remembe
 | Long Short-Term Memory Neural Network* |  83.45%  |
 
 
-*\*The data was represented using One-hot encoding*
+*\*For this model, the data is represented using One-hot encoding*
 
 
 ### Results using the second dataset
@@ -239,6 +254,9 @@ This way all the irellevant information is forgotton to give priority to remembe
 | XGBoost                                |    |
 | Multi-Layer Perceptron Neural Network  |    |
 | Long Short-Term Memory Neural Network* |  89.20%  |
+
+
+*\*This time, the data was represented using word2vec*
 
 
 ### Lest take a further look at the LSTM scoring the best resutls
