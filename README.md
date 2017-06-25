@@ -1,7 +1,9 @@
 # Sentiment Analysis
 
-## Intro
+## Motivation
 The idea is to write different algorithms using different machine learning approaches in order to compete them in solving sentiment analysis problem.
+After playing around with the alogrithms, one of the will be chosen as the best one. It will be traind and tweaked for the best results.
+As a result this model will be saved and demonstrated.
 
 ## Data
 
@@ -250,14 +252,18 @@ This way all the irellevant information is forgotton to give priority to remembe
 
 | Algorithm                              | Accuracy |
 | -------------------------------------- | -------- |
-| Naive Bayes Classifier                 |    |
-| XGBoost                                |    |
-| Multi-Layer Perceptron Neural Network  |    |
+| Naive Bayes Classifier                 |  76.69%  |
+| XGBoost                                |  85.96%  |
+| Multi-Layer Perceptron Neural Network  |  86.42%  |
 | Long Short-Term Memory Neural Network* |  89.20%  |
 
 
 *\*This time, the data was represented using word2vec*
 
+As you can see, the results using this datasets are a little bil lower for most of the algorithms (for all without LSTM).
+There are two reasons for this to hapen:
+* With this dataset we have more data to train, but also a lot more data to test with. Therefor it is normal that the results will be a little lower
+* All the algorithms except for LSTM were tweaked to work good with the first dataset. A little bit of tweaking the parameters can lead to better results with the second dataset, but this is not hte scope of the current project.
 
 ### Lest take a further look at the LSTM scoring the best resutls
 
@@ -286,6 +292,13 @@ For completeness, here is the chart displaying the loss, during the same learnin
 
 ![Loss](https://gitlab.com/university-projects/sentiment-analysis/raw/master/assets/Loss.png)
 
+
+## Conclusion
+
+In these project we observed four machine learning algorithms and competed them to solving sentiment analysis problem.
+Each gave there results and finally, it was concluded that from the chosen alogrithms it was LSTM that solved the problem the best way.
+That is not a surprace, because a lot of research lead to the fact that Recurrent Neural Networks are the best at solving problems of this matter.
+LSTM is a concept that has gone even further and provided a brilliant sollution.
 
 ## Libraries
 
