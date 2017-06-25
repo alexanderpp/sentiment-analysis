@@ -8,7 +8,8 @@ sys.path.append('.')
 import utils
 
 print "Loading data..."
-x_train, x_test, y_train, y_test = utils.load_data(file="./data/labeledTrainData.tsv")
+x_train, x_test, y_train, y_test = utils.load_data()
+# x_train, x_test, y_train, y_test = utils.load_data2()
 
 sw = stopwords.words('english') + get_stop_words("english")
 

@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from stop_words import get_stop_words
+from sklearn.datasets import load_files
 import numpy as np
 
 
@@ -87,6 +88,15 @@ def load_data(file = "./data/labeledTrainData.tsv", test_size = 0.3, seed = 7):
     f.close()
 
     return train_test_split(x, y, test_size=test_size, random_state=seed)
+
+def load_data2():
+    train = load_files("./data/aclImdb/train/")
+    x_train, y_train = train.data, train.target
+
+    test = load_files("./data/aclImdb/test/")
+    x_test, y_test = test.data, test.target
+
+    return x_train, x_test, y_train, y_test
 
 def extract_features(x, xt, y, yt, vectorizer):
     all_texts = x + xt

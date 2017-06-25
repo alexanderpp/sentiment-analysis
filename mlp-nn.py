@@ -10,7 +10,8 @@ import utils
 max_features = 3000
 
 print "Loading data ..."
-x_train, x_test, y_train, y_test = utils.load_data(file="./data/labeledTrainData.tsv")
+x_train, x_test, y_train, y_test = utils.load_data()
+# x_train, x_test, y_train, y_test = utils.load_data2()
 
 sw = stopwords.words('english') + get_stop_words("english")
 
